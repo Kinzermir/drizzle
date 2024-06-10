@@ -1,0 +1,62 @@
+npx create-next-app .
+then 
+npm i -g vercel
+then 
+vercel
+then click on 
+? Link to existing project? no
+? Want to modify these settings? no
+then go to vercel webiste and click on project name which's the project name 
+then go to storage and click on make connection with your data base, Here we create database that's why we made connection if it't not made then you have to make the database and only one time you can make it.
+then go to project and you will find domain Kinzer Mir's projects so click on domain 
+
+then click on my database
+then click on on your left side:- Get Started 
+class12 sir sajid gitub link in this you will find commands
+https://github.com/sajid-khan-afridi/batch-54/tree/main/class12
+
+Get Started :- 
+first step : Connect Project which we have already connected and past this vercel link into terminal 
+run vercel link in the terminal to link to the project locally.
+
+2nd step : vercel env pull .env and vercel env pull .env.development.local  install in terminal from this the database env file will make means env which have all credentials of our databse 
+vercel env pull .env (before pasting into terminal please go to vercel site and in storage click on connect to data base )
+(for making credentials and make sure every time the env file should be different such as in class7todo we gave .env here we have given .env. but now .env. is not working in terminal so if the env file is same in every code it's okay so here i give vercel env pull .env)
+
+3rd step : run in terminal npm install @vercel/postgres  The @vercel/postgres package is likely a library provided by Vercel to interact with PostgreSQL databases means it connect our project with database
+This command will download and install the package and its dependencies, updating your package.json and package-lock.json files to include @vercel/postgres.
+
+4. npm install drizzle-orm --force
+5. npm install -D drizzle-kit
+
+Create a drizzle.config.ts file at root directory to define the Drizzle configuration. and paste the code (step 4) which is mentioned in sir github profile and the profile link is 
+https://github.com/sajid-khan-afridi/batch-54/tree/main/class12 
+
+Create a schema file (e.g., src/db/schema.ts) to define your database tables and api table jo properties yaha use howe wohe properties api me honge 
+
+sql is used for connection 
+
+Create :- api folder in app and then create todo folder and in thaat create route.ts file
+src/app/api/todo/route.ts
+
+in route.ts file copy the code of class7todo (route.ts) file and past code into class12drzzle route.ts file and then commint the code of sql query bec we are making difference between the sql query and drizzle 
+
+then create GET in route.ts after that write in terminal 
+npx drizzle-kit generate  and then write into terminal 
+npx drizzle-kit migrate
+
+Drizzle ORM:- is an Object-Relational Mapping (ORM) tool designed for managing database operations in web applications. Its primary purpose is to simplify database interactions by allowing developers to work with database records using high-level, object-oriented code rather than writing complex SQL queries.
+Drizzle ORM abstracts the complexities of SQL, allowing developers to perform CRUD (Create, Read, Update, Delete) operations using methods and properties of objects.
+Drizzle ORM allows for flexible query building, making it easier to construct complex queries programmatically without writing raw SQL.
+Drizzle organizing database logic within the application code, Drizzle ORM improves the maintainability and readability of the codebase
+agr sql se apne table banana hai tu apko query likhne hote hai jo ke humne class 7 todo me table banaya through sql but when we want to modify the table we will have to changes in sql query so drizzle is easier in this context that's why we used drizzle.
+Given link is Drizzle ORM explanation on Chatpgt command given by sir sajid
+https://chatgpt.com/share/dfe19488-b3e4-4998-bde3-6216791291cb
+
+
+
+ In this project make sure you give command npx drizzle-kit generate only one time if for any reason you give npx drizzle-kit generate this command again then change the name of table in schema.ts before i have given todo12 then changed to todo11 bec i was trying this code command npx drizzle-kit generate again and again. 
+ but if you modify the table such as i created table todo11 and i gave id, text, completed then i run command in terminal npx drizzle-kit generate after that i write email : varchar("email") in table todo11 
+ and then i paste command npx drizzle-kit generate in terminal then i got a file in drizzle with the name of 0001 later i remove email : varchar("email") this from schema.ts file and paste the command in terminal which is npx drizzle-kit generate and in result i got 00002 file in drizzle 0002 file is telling me  ALTER TABLE "todo11" DROP COLUMN IF EXISTS "email";
+
+ then go to vercel and in storage see click on data then browser then select table name which you have created. you will found two table todo11
